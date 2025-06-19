@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 import {useTheme} from '../context/theme-provider';
-import { Moon, Sun } from 'lucide-react';
+import { Moon, Sun, Home } from 'lucide-react';
 import CitySearch from './city-search';
 
 const Header = () => {
@@ -11,6 +11,11 @@ const Header = () => {
    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur py-1
     supports-[backdrop-filter]:bg-background/80">
     <div className="container mx-auto flex h-16 items-center justify-between px-4">
+         <Link to={"/"}>
+          <Home className="h-14"
+          />
+        </Link>
+        
         {/* search */}
         <CitySearch />
         
