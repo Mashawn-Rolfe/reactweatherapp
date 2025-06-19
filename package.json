@@ -2,7 +2,7 @@
   "name": "reactweatherapp",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://Mashawn-Rolfe.github.io/reactweatherapp",
+  "homepage": "https://mashawn-rolfe.github.io/reactweatherapp",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
