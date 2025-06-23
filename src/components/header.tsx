@@ -22,11 +22,11 @@ const Header = () => {
         {/*theme toggle*/}
     <div onClick={() => setTheme(isDark? "light":"dark")}
         className={`flex items-center cursor-pointer transition-transform duration-300
-        ${isDark ? "rotate-180" : "rotate-0"}
+        ${isDark ? "rotate-0" : "rotate-180"}
         `}>
         {isDark?(
-            <Sun className="h-6 w-6 cursor-pointer text-yellow-500" />
-        ):( <Moon className="h-6 w-6 cursor-pointer text-blue-500" />)}
+          <Moon className="h-6 w-6 cursor-pointer text-white-500" /> 
+        ):( <Sun className="h-6 w-6 cursor-pointer text-yellow-500" />)}
     </div>
     </div>
   </header>
