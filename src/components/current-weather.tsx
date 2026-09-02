@@ -7,6 +7,7 @@ interface CurrentWeatherProps {
   locationName?: GeocodingData
 }
 
+// Displays current weather for location
 const CurrentWeather= ({data, locationName}: CurrentWeatherProps)=>{
    const {
         weather: [currentWeather],
@@ -14,6 +15,7 @@ const CurrentWeather= ({data, locationName}: CurrentWeatherProps)=>{
         wind: { speed} ,
     }=data;
 
+    // Formats temperature to display
 const formatTemperature = (temp: number) => `${Math.round(temp)}°`;
 
   return (
