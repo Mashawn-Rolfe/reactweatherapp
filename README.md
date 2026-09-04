@@ -56,5 +56,3 @@ While building this project, I practiced:
 
 👤 Created By:
 Mashawn Rolfe
-Mashawn Rolfe
-
