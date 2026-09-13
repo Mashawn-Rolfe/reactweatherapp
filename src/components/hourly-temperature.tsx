@@ -37,13 +37,13 @@ const HourlyTemperature =({data}: HourlyTemperatureProps) => {
                                         <div className="grid grid-cols-2 gap-2">
                                             <div className="flex flex-col">
                                                 <span className=" text-[0.7rem] uppercase
-                                                text-muted-foreground text-orange-500">Temperature</span>
+                                                text-orange-500">Temperature</span>
                                                 <span className="font-bold">{payload[0].value}°</span>
                                             </div>
                                         
                                             <div className="flex flex-col">
                                                 <span className=" text-[0.7rem] uppercase
-                                                text-muted-foreground text-green-500">Feels Like</span>
+                                                 text-green-500">Feels Like</span>
                                                 <span className="font-bold">{payload[1].value}°</span>
                                             </div>
                                         </div>
