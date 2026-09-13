@@ -18,6 +18,11 @@ const Header = () => {
         
         {/* search */}
         <CitySearch />
+
+        //Unit Converter
+        < div className="flex items-center gap-2">
+          < ></>
+        </div>
         
         {/*theme toggle*/}
     <div onClick={() => setTheme(isDark? "light":"dark")}

@@ -66,13 +66,13 @@ const WeatherForecast = ({data}: WeatherForecastProps) => {
                     </div>
 
                     <div>
+                        <span className="flex items-center gap-1 text-red-500">
+                                <ArrowUp className="h-4 w-4" />
+                                {formatTemp(day.temp_max)}
+                            </span>
                         <span className="flex items-center gap-1 text-blue-500">
                                 <ArrowDown className="h-4 w-4" />
                                 {formatTemp(day.temp_min)}
-                            </span>
-                            <span className="flex items-center gap-1 text-red-500">
-                                <ArrowUp className="h-4 w-4" />
-                                {formatTemp(day.temp_max)}
                             </span>
                     </div>
 

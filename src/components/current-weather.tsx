@@ -40,14 +40,14 @@ const formatTemperature = (temp: number) => `${Math.round(temp)}°`;
                     <div>
                         <p className=" text-sm font-medium text-muted-foreground">
                             Feels Like {formatTemperature(feels_like)}</p>
-                        <div className=" text-sm font-medium">
-                            <span className="flex items-center gap-1 text-blue-500">
-                                <ArrowDown className="h-4 w-4" />
-                                {formatTemperature(temp_min)}
-                            </span>
+                        <div className=" text-sm font-medium">    
                             <span className="flex items-center gap-1 text-red-500">
                                 <ArrowUp className="h-4 w-4" />
                                 {formatTemperature(temp_max)}
+                            </span>
+                            <span className="flex items-center gap-1 text-blue-500">
+                                <ArrowDown className="h-4 w-4" />
+                                {formatTemperature(temp_min)}
                             </span>
                         </div>
                             
