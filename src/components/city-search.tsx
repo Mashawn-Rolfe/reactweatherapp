@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "./ui/button"
 import { CommandDialog, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem, CommandSeparator } from "./ui/command";
 import { Clock, Loader2, Search, XCircle } from "lucide-react";
@@ -11,10 +11,11 @@ import { format } from "date-fns";
 const CitySearch = () =>{
     const [open, setOpen] = useState(false);
     const [query, setQuery] = useState("");
+    const [debouncedQuery, setDebouncedQuery] = useState("");
     const navigate = useNavigate();
 
     // This hook fetches city data based on the search query
-    const {data: location, isLoading} = useLocationSearch(query);
+    const {data: location, isLoading} = useLocationSearch(debouncedQuery);
     const {history, addToHistory, clearHistory} = useSearchHistory();
 
     const handleSelect=(cityData: string) =>{
@@ -33,6 +34,12 @@ const CitySearch = () =>{
         navigate(`city/${name}?lat=${lat}&lon=${lon}`);
     };
 
+    useEffect(() => {
+        const timer = setTimeout(()=> {
+            setDebouncedQuery(query);
+        }, 400);
+        return () => clearTimeout(timer);
+    }, [query]);
     
     // This component is a search bar for cities, which opens a command dialog
   return (
@@ -50,7 +57,7 @@ const CitySearch = () =>{
             onValueChange={setQuery}
             />
             <CommandList>
-                {query.length>2 && !isLoading && (
+                {debouncedQuery.length>2 && !isLoading && (
                     <CommandEmpty>No results found.</CommandEmpty>
                 )}
                 
@@ -93,13 +100,17 @@ const CitySearch = () =>{
 
                 <CommandSeparator />
 
-                {location && location.length>0 &&(
-                <CommandGroup heading="Suggested Cities">
                     {isLoading && (
                         <div className="flex items-center justify-center p-4">
                             <Loader2 className="h-4 w-4 animate-spin" />
+                            <span className= "ml-2 text-sm text-muted-foreground">
+                                Searching...
+                            </span>
                         </div>
                     )}
+
+                {location && location.length > 0 &&(
+                <CommandGroup heading="Suggested Cities">
                     {location.map((location) => {
                         return (<CommandItem key={`${location.lat}-${location.lon}`}
                         value={`${location.lat}|${location.lon}|${location.name}|${location.country}`}
